@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Thyroid Disease Classification Result</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <style>
+        body {
+            background-image: url("https://t3.ftcdn.net/jpg/03/90/81/06/360_F_390810647_HsMu0N8nPp61GzNPFsuLgjbWCxNcHOLO.jpg");
+            background-size: cover;
+            color: #FFFDD2;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 50px;
+        }
+        h1 {
+            text-align: center;
+            font-size: 3em;
+        }
+        h3 {
+            line-height: 1.8;
+        }
+        .btn-home, .btn-predict {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="text-right">
+            <a href="/" class="btn btn-info btn-lg btn-home">Home</a>
+            <a href="/predict" class="btn btn-primary btn-lg btn-predict">Predict</a>
+        </div>
+        <h1><strong>Thyroid Disease Classification</strong></h1>
+        <p><h3>
+            Based on the given input, the prediction for thyroid disease is: <strong>{{ prediction }}</strong>.
+        </h3></p>
+        <p><h3>Please choose the condition based on the number in the predict result and follow the respective treatment:</h3></p>
+        <p><h3>
+            5 - Miscellaneous: Follow your doctor's advice and continue with any prescribed medication.<br>
+            4 - Hypothyroid conditions: Hormone replacement therapy, usually with levothyroxine.<br>
+            1 - Binding protein: Consult with your healthcare provider for specific treatment options.<br>
+            6 - Replacement therapy: Continue with the hormone replacement therapy as prescribed.<br>
+            2 - General health: Maintain a healthy lifestyle, including regular exercise and a balanced diet.<br>
+            3 - General health: Maintain a healthy lifestyle, including regular exercise and a balanced diet.<br>
+            0 - Antithyroid treatment: Medications such as methimazole or propylthiouracil to reduce thyroid hormone production.
+        </h3></p>
+    </div>
+</body>
+</html>

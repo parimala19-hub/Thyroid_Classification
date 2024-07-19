@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Predict Thyroid Disease</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <style>
+        body {
+            background-image: url("https://www.entincayman.com/wp-content/uploads/Thyroid_Nodules_CausesSymptoms.jpg");
+            background-size: cover;
+        }
+        h3.big {
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body>
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 bg-light text-right">
+                <a href="/home" class="btn btn-info btn-lg">Home</a>
+                <a href="/predict" class="btn btn-primary disabled btn-lg">Predict</a>
+            </div>
+        </div>
+        <br>
+        <font color="#FFFDD0"><h1><strong>Thyroid Disease Classification</strong></h1><br></font>
+        <h4>
+        <form action="/pred" method="post">
+            <div class="form-group mb-3">
+                <div class="input-group-prepend">
+                    <p style="color: pink;"><label class="input-group-text" for="age">Age</label></p>
+                </div>
+                <input type="number" name="age" id="age" class="form-control" placeholder="Age" required="required"/><br><br>
+            </div>
+            <div class="form-group mb-3">
+                <div class="input-group-prepend">
+                    <p style="color: pink;"><label class="input-group-text" for="sex">Sex</label></p>
+                </div>
+                <select class="custom-select" name="sex" id="sex">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select><br><br>
+            </div>
+            <div class="form-group mb-3">
+                <div class="input-group-prepend">
+                    <p style="color: pink;"><label class="input-group-text" for="on_thyroxine">On Thyroxine</label></p>
+                </div>
+                <select class="custom-select" name="on_thyroxine" id="on_thyroxine">
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select><br><br>
+            </div>
+            <div class="form-group mb-3">
+                <div class="input-group-prepend">
+                    <p style="color: pink;"><label class="input-group-text" for="query_on_thyroxine">Query on Thyroxine</label></p>
+                </div>
+                <select class="custom-select" name="query_on_thyroxine" id="query_on_thyroxine">
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select><br><br>
+            </div>
+            <div class="form-group mb-3">
+                <div class="input-group-prepend">
+                    <p style="color: pink;"><label class="input-group-text" for="on_antithyroid_meds">On Antithyroid Meds</label></p>
+                </div>
+                <select class="custom-select" name="on_antithyroid_meds" id="on_antithyroid_meds">
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select><br><br>
+            </div>
+            <div class="form-group mb-3">
+                <div class="input-group-prepend">
+                    <p style="color: pink;"><label class="input-group-text" for="sick">Sick</label></p>
+                </div>
+                <select class="custom-select" name="sick" id="sick">
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select><br><br>
+            </div>
+            <div class="form-group mb-3">
+                <div class="input-group-prepend">
+                    <p style="color: pink;"><label class="input-group-text" for="pregnant">Pregnant</label></p>
+                </div>
+                <select class="custom-select" name="pregnant" id="pregnant">
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select><br><br>
+            </div>
+            <div class="form-group mb-3">
+                <div class="input-group-prepend">
+                    <p style="color: pink;"><label class="input-group-text" for="thyroid_surgery">Thyroid Surgery</label></p>
+                </div>
+                <select class="custom-select" name="thyroid_surgery" id="thyroid_surgery">
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select><br><br>
+            </div>
+            <div class="form-group mb-3">
+                <div class="input-group-prepend">
+                    <p style="color: pink;"><label class="input-group-text" for="I131_treatment">I131 Treatment</label></p>
+                </div>
+                <select class="custom-select" name="I131_treatment" id="I131_treatment">
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select><br><br>
+            </div>
+            <div class="form-group mb-3">
+                <div class="input-group-prepend">
+                    <p style="color: pink;"><label class="input-group-text" for="query_hypothyroid">Query Hypothyroid</label></p>
+                </div>
+                <select class="custom-select" name="query_hypothyroid" id="query_hypothyroid">
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select><br><br>
+            </div>
+            <div class="form-group mb-3">
+                <div class="input-group-prepend">
+                    <p style="color: pink;"><label class="input-group-text" for="query_hyperthyroid">Query Hyperthyroid</label></p>
+                </div>
+                <select class="custom-select" name="query_hyperthyroid" id="query_hyperthyroid">
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select><br><br>
+            </div>
+            <div class="form-group mb-3">
+                <div class="input-group-prepend">
+                    <p style="color: pink;"><label class="input-group-text" for="lithium">Lithium</label></p>
+                </div>
+                <select class="custom-select" name="lithium" id="lithium">
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select><br><br>
+            </div>
+            <div class="form-group mb-3">
+                <div class="input-group-prepend">
+                    <p style="color: pink;"><label class="input-group-text" for="goitre">Goitre</label></p>
+                </div>
+                <select class="custom-select" name="goitre" id="goitre">
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select><br><br>
+            </div>
+            <div class="form-group mb-3">
+                <div class="input-group-prepend">
+                    <p style="color: pink;"><label class="input-group-text" for="tumor">Tumor</label></p>
+                </div>
+                <select class="custom-select" name="tumor" id="tumor">
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select><br><br>
+            </div>
+            <div class="form-group mb-3">
+                <div class="input-group-prepend">
+                    <p style="color: pink;"><label class="input-group-text" for="hypopituitary">Hypopituitary</label></p>
+                </div>
+                <select class="custom-select" name="hypopituitary" id="hypopituitary">
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select><br><br>
+            </div>
+            <div class="form-group mb-3">
+                <div class="input-group-prepend">
+                    <p style="color: pink;"><label class="input-group-text" for="psych">Psych</label></p>
+                </div>
+                <select class="custom-select" name="psych" id="psych">
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select><br><br>
+            </div>
+            <div class="form-group mb-3">
+                <div class="input-group-prepend">
+                    <p style="color: pink;"><label class="input-group-text" for="TSH">TSH</label></p>
+                </div>
+                <input type="number" name="TSH" id="TSH" step="0.01" class="form-control" placeholder="TSH" required="required"/><br><br>
+            </div>
+            <div class="form-group mb-3">
+                <div class="input-group-prepend">
+                    <p style="color: pink;"><label class="input-group-text" for="T3">T3</label></p>
+                </div>
+                <input type="number" name="T3" id="T3" step="0.01" class="form-control" placeholder="T3" required="required"/><br><br>
+            </div>
+            <div class="form-group mb-3">
+                <div class="input-group-prepend">
+                    <p style="color: pink;"><label class="input-group-text" for="TT4">TT4</label></p>
+                </div>
+                <input type="number" name="TT4" id="TT4" step="0.01" class="form-control" placeholder="TT4" required="required"/><br><br>
+            </div>
+            <div class="form-group mb-3">
+                <div class="input-group-prepend">
+                    <p style="color: pink;"><label class="input-group-text" for="T4U">T4U</label></p>
+                </div>
+                <input type="number" name="T4U" id="T4U" step="0.01" class="form-control" placeholder="T4U" required="required"/><br><br>
+            </div>
+            <div class="form-group mb-3">
+                <div class="input-group-prepend">
+                    <p style="color: pink;"><label class="input-group-text" for="FTI">FTI</label></p>
+                </div>
+                <input type="number" name="FTI" id="FTI" step="0.01" class="form-control" placeholder="FTI" required="required"/><br><br>
+            </div>
+            <div class="form-group mb-3">
+                <div class="input-group-prepend">
+                    <p style="color: pink;"><label class="input-group-text" for="TBG">TBG</label></p>
+                </div>
+                <input type="number" name="TBG" id="TBG" step="0.01" class="form-control" placeholder="TBG" required="required"/><br><br>
+            </div>
+            <button type="submit" class="btn btn-danger btn-lg">Predict</button>
+        </form>
+        </h4>
+    </div>
+</body>
+</html>
